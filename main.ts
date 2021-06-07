@@ -22,6 +22,8 @@ class Main {
             verticalSize: serie1.length,
             horizontalSize: serie2.length,
         });
+
+        console.log("Score: ", dwt.getPathScore());
     }
 }
 

@@ -13,7 +13,7 @@ export class MatrixHandler {
         let i, j;
         for (i = 0; i < verticalSize; i++) {
             for (j = 0; j < horizontalSize - 1; j++) {
-                process.stdout.write(`${matrix[i][j]} `);
+                process.stdout.write(`${matrix[i][j]}\t`);
             }
             process.stdout.write(`${matrix[i][j]}\n`);
         }

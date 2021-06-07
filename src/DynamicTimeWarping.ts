@@ -6,12 +6,14 @@ export class DynamicTimeWarping {
     private timeSeries2: numArr;
     private distanceMatrix: Array<numArr> | null;
     private pathMatrix: Array<numArr> | null;
+    private pathScore: number;
 
     constructor(ts1: numArr, ts2: numArr) {
         this.timeSeries1 = ts1;
         this.timeSeries2 = ts2;
         this.distanceMatrix = null;
         this.pathMatrix = null;
+        this.pathScore = 0;
     }
 
     private calculateDistance = (num1: number, num2: number): number => {
@@ -66,9 +68,12 @@ export class DynamicTimeWarping {
     };
 
     public getBestPathMatrix = (): Array<numArr> => {
+        this.pathScore = 0;
+
         if (this.distanceMatrix === null) {
             this.getDistanceMatrix();
         }
+
         const timeSeries1Length = this.timeSeries1.length;
         const timeSeries2Length = this.timeSeries2.length;
         this.pathMatrix = this.createMatrix(
@@ -80,6 +85,7 @@ export class DynamicTimeWarping {
             j = timeSeries2Length - 1;
 
         this.pathMatrix[i][j] = 1;
+        this.pathScore += this.distanceMatrix![i][j];
         while (i !== 0 || j !== 0) {
             if (i === 0) {
                 j = j - 1;
@@ -104,8 +110,16 @@ export class DynamicTimeWarping {
                         break;
                 }
             }
+            this.pathScore += this.distanceMatrix![i][j];
             this.pathMatrix[i][j] = 1;
         }
         return this.pathMatrix;
     };
+
+    public getPathScore(): number {
+        if (this.pathMatrix === null) {
+            this.getBestPathMatrix();
+        }
+        return this.pathScore;
+    }
 }

@@ -4,4 +4,4 @@ Implementação do algoritmo DTW em Typescript para a matéria de Introdução �
 
 ## Referências
 
-https://github.com/GordonLesti/dynamic-time-warping: este repositório serviu de inspiração para a realização desse trabalho. 
+O repositório: https://github.com/GordonLesti/dynamic-time-warping serviu de inspiração para a realização desse trabalho. 
