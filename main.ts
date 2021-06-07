@@ -9,21 +9,21 @@ class Main {
         const serie2 = [1, 1, 2, 4, 3, 5, 3, 2, 3, 2];
         const dwt = new DynamicTimeWarping(serie1, serie2);
 
-        console.log("Matriz de distância\n");
+        console.log("\nMatriz de distância");
         MatrixHandler.printMatrix({
             matrix: dwt.getDistanceMatrix(),
             verticalSize: serie1.length,
             horizontalSize: serie2.length,
         });
 
-        console.log("Matriz de caminho\n");
+        console.log("\nMatriz de caminho");
         MatrixHandler.printMatrix({
             matrix: dwt.getBestPathMatrix(),
             verticalSize: serie1.length,
             horizontalSize: serie2.length,
         });
 
-        console.log("Score: ", dwt.getPathScore());
+        console.log("\nScore:", dwt.getPathScore());
     }
 }
 
