@@ -43,9 +43,10 @@ export class DynamicTimeWarping {
             for (j = 0; j < timeSeries2Length; j++) {
                 cost = this.maxNumber;
                 if (i === 0) {
-                    cost = 0;
                     if (j !== 0) {
                         cost = Math.min(cost, this.distanceMatrix[i][j - 1]);
+                    } else {
+                        cost = 0;
                     }
                 } else {
                     cost = Math.min(cost, this.distanceMatrix[i - 1][j]);
