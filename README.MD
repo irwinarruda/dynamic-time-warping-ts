@@ -1,6 +1,6 @@
 # Dynamic Time Warping
 
-Implementaçã do algoritmo DTW em Typescript para a matéria de Introdução à Computação do curso Engenharia de Transportes da UFG.
+Implementação do algoritmo DTW em Typescript para a matéria de Introdução à Computação do curso Engenharia de Transportes da UFG.
 
 ## Referências
 
